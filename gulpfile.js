@@ -10,21 +10,24 @@ var pygments = require('pygmentize-bundled');
 
 var eslint = require('gulp-eslint');
 
+var browserSync = require('browser-sync').create();
+
 // Compile CSS
 gulp.task('styles', function () {
-  gulp.src('app/styles/main.scss')
+  return gulp.src('app/styles/main.scss')
     .pipe(sass({
       precision: 10
     }))
     .pipe(autoprefixer({
       browsers: ['last 2 versions']
     }))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(browserSync.stream());
 });
 
 // Compile HTML
 gulp.task('html', function() {
-  gulp.src('content/**/*.md')
+  return gulp.src('content/**/*.md')
     .pipe(frontMatter())
     .pipe(marked({
       smartypants: true,
@@ -42,10 +45,32 @@ gulp.task('html', function() {
 
 // Lint JS
 gulp.task('scripts', function() {
-  gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/scripts/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(gulp.dest('dist/scripts'));
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe(browserSync.stream());
 });
 
+// For reloading BrowserSync after HTML updates
+gulp.task('html-watch', ['html'], function (done) {
+  browserSync.reload();
+  done();
+});
+
+// Start BrowserSync server
+gulp.task('serve', ['default'], function() {
+  browserSync.init({
+    server: {
+      baseDir: './dist'
+    }
+  });
+
+  gulp.watch("app/styles/*.scss", ['styles']);
+  gulp.watch("app/scripts/*.js", ['scripts']);
+  gulp.watch("app/templates/**/*.mustache", ['html-watch']);
+  gulp.watch("content/**/*.md", ['html-watch']);
+});
+
+// By default, just build site
 gulp.task('default', ['styles', 'html', 'scripts']);

@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "babel-eslint": "^6.1.2",
+    "browser-sync": "^2.16.0",
     "eslint-config-airbnb-es5": "^1.0.9",
     "eslint-plugin-react": "^6.3.0",
     "gulp": "^3.9.1",
