@@ -1,10 +1,14 @@
 var gulp = require('gulp');
+
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+
 var frontMatter = require('gulp-front-matter');
 var marked = require('gulp-markdown');
 var layout = require('gulp-layout');
 var pygments = require('pygmentize-bundled');
+
+var eslint = require('gulp-eslint');
 
 // Compile CSS
 gulp.task('styles', function () {
@@ -18,6 +22,7 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('dist/styles'));
 });
 
+// Compile HTML
 gulp.task('html', function() {
   gulp.src('content/**/*.md')
     .pipe(frontMatter())
@@ -35,4 +40,12 @@ gulp.task('html', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['styles', 'html']);
+// Lint JS
+gulp.task('scripts', function() {
+  gulp.src('app/scripts/**/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(gulp.dest('dist/scripts'));
+});
+
+gulp.task('default', ['styles', 'html', 'scripts']);
