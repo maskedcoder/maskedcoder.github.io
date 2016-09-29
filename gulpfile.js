@@ -38,7 +38,16 @@ gulp.task('html', function() {
       }
     }))
     .pipe(layout(function (file) {
-      return file.frontMatter;
+      data = file.frontMatter;
+      data.partials = {
+        'default': 'default',
+        'footer': 'footer',
+        'head': 'head',
+        'header': 'header',
+        'post': 'post'
+      };
+
+      return data;
     }))
     .pipe(gulp.dest('dist'));
 });
