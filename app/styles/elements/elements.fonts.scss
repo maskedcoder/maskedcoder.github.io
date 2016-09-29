@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
+
+html {
+  font-family: "Hind", sans-serif;
+}
+
+h1, h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+}
+
+pre {
+  @include inuit-font-size($inuit-font-size-code);
+
+  font-family: "Source Code Pro", monospace;
+}
