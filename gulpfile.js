@@ -61,6 +61,12 @@ gulp.task('scripts', function() {
     .pipe(browserSync.stream());
 });
 
+// Copy root-level files (for icons and random stuff like that)
+gulp.task('copy', function() {
+  return gulp.src(['app/*', '!Thumbs.db'])
+    .pipe(gulp.dest('dist'));
+});
+
 // For reloading BrowserSync after HTML updates
 gulp.task('html-watch', ['html'], function (done) {
   browserSync.reload();
@@ -82,4 +88,4 @@ gulp.task('serve', ['default'], function() {
 });
 
 // By default, just build site
-gulp.task('default', ['styles', 'html', 'scripts']);
+gulp.task('default', ['styles', 'html', 'scripts', 'copy']);
