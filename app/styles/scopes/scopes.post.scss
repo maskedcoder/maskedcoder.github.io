@@ -1,0 +1,113 @@
+/*------------------------------------*\
+    #POST
+\*------------------------------------*/
+
+.s-post {
+
+  pre {
+    display: block;
+    max-height: 20rem;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+
+    background: #242424;
+    border: 0.2rem solid $color--primary;
+
+    color: #f8f8f2;
+    text-shadow: none;
+
+    overflow-x: auto;
+  }
+
+    /**
+     * Markdown conversion results in ab extra <code> tag
+     * inside the <pre>. I don't want this to get styled
+     * like the inline code.
+     */
+    pre > code {
+      background: initial;
+      border: none;
+      padding: 0;
+      text-shadow: none;
+    }
+
+
+
+
+  code {
+    background: #f9f9ff;
+    border: 1px solid $color--secondary;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    text-shadow: 0 1px 0 #fff;
+  }
+
+
+
+
+  blockquote {
+    position: relative;
+
+    background: #fff;
+
+    padding: 1rem;
+    border-left: 2px solid $color--primary;
+
+    margin-left: 2rem;
+
+    box-shadow: 0.25rem 0 1rem rgba(0, 0, 0, 0.2);
+  }
+
+    /**
+     * Add a quotation mark to emphasize that
+     * this is a quote.
+     */
+    blockquote:before {
+      content: "\0201c";
+
+      font-size: 4rem;
+
+      position: absolute;
+      left: -2rem;
+      top: -1rem;
+
+      color: $color--primary;
+    }
+
+    /**
+     * Don't want extra space at the bottom
+     */
+    blockquote *:last-child {
+      margin-bottom: 0;
+    }
+
+    /**
+     * Since there is padding from parent
+     * blockquotes, I don't need margin-left
+     */
+    blockquote blockquote {
+      margin-left: 0;
+    }
+
+      /**
+       * And take out the quotation mark also
+       */
+      blockquote blockquote:before {
+        content: "";
+      }
+
+
+
+
+  hr {
+    height: 0.1rem;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 0;
+
+    background: $color--quaternary;
+  }
+
+}

@@ -1,0 +1,128 @@
+/*------------------------------------*\
+    #HIGHLIGHT
+\*------------------------------------*/
+
+/**
+ * I am using Code Mirror for my syntax highlighting, because it lets things look
+ * exactly the same as when I'm in Brackets.
+ *
+ * The .cm- prefix is used exclusively for Code Mirror highlighting.
+ */
+
+/*!*
+ * Highlighting from
+ * Brackets Stripper theme (https://github.com/Visualbam/Brackets-Stripper), which is based on
+ * Dark Soda Theme (https://github.com/rainje/Monokai-Dark-Soda), which is based on
+ * Monokai Theme (https://github.com/Brackets-Themes/Monokai)
+ *
+ * The MIT License (MIT)
+ * Original work Copyright © 2014 Steffen Bruchmann <hi@sbruchmann.me> (http://sbruchmann.me)
+ * Modified work Copyright © 2014-2015 rain
+ * Modified work Copyright © 2014 Ryan McKay <ryanmckay@outlook.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the “Software”), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * --------------------------------------------------------------------*/
+
+/* e.g. var, function */
+.cm-keyword {
+  color: #ff007f;
+}
+/* e.g. CoffeeScript ->, CSS colons */
+.cm-operator {
+  color: #ff007f;
+}
+/* e.g. HTML elements */
+.cm-tag {
+  color: #ff007f !important;
+}
+/* e.g. #id */
+.cm-atom {
+  color: #c48cff;
+}
+/* e.g. 20 */
+.cm-number {
+  color: #c48cff;
+}
+/* e.g. $, i */
+.cm-variable {
+  color: #fff;
+}
+/* e.g. for key in [this], Markdown li */
+.cm-variable-2 {
+  color: #c48cff;
+}
+/* e.g. @include, [this] */
+.cm-def {
+  color: #fd963f;
+}
+/* e.g. getElementbyId, CSS properties */
+.cm-property {
+  color: #52e3f6;
+}
+/* e.g. // comments */
+.cm-comment {
+  color: #8c8c8c;
+}
+/* e.g. "string" */
+.cm-string {
+  color: #ece47e;
+}
+/* e.g. some CSS values */
+.cm-string-2 {
+  color: #ece47e;
+}
+/* e.g. @font-face */
+.cm-meta {
+  color: #1dff00;
+}
+/* e.g. .box */
+.cm-qualifier {
+  color: #1dff00;
+}
+/* e.g. class="" id="" */
+.cm-attribute {
+  color: #1dff00;
+}
+/* highlighted selection */
+.cm-matchhighlight {
+  background-color: rgba(61, 61, 61, 0.23);
+}
+/* not sure if used */
+.cm-builtin {
+  color: #15d880;
+}
+.cm-bracket {
+  color: #f9faf4;
+}
+.cm-plus {
+  color: #85a300;
+}
+.cm-variable-3 {
+  color: #f8f8f2;
+}
+.cm-error,
+.cm-minus {
+  color: #dc322f;
+}
+.cm-header {
+  color: #d85896;
+}
+.cm-link {
+  color: #b77fdb;
+  text-decoration: none;
+}
+.cm-rangeinfo {
+  color: #6c71c4;
+}
+.cm-quote {
+  color: #6c9ef8;
+}

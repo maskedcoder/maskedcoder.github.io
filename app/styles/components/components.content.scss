@@ -1,0 +1,62 @@
+/*------------------------------------*\
+    #CONTENT
+\*------------------------------------*/
+
+/**
+ * This is a wrapper for everything: header, main, footer
+ *
+ * 1. For smaller screen sizes, this lets me not have
+ *    to adjust the giant header. I just let parts of
+ *    it get covered up so that it just becomes a
+ *    swoosh.
+ */
+.c-content-wrap {
+  overflow-x: hidden; /* [1] */
+  position: relative;
+}
+
+  /**
+   * Add a background when the screen is large enough
+   */
+  @include mq($from: content-width) {
+    .c-content-wrap {
+      background: repeating-linear-gradient(to right,
+                                            lighten($color--secondary, 40%) 0,
+                                            lighten($color--secondary, 40%) 1rem,
+                                            lighten($color--secondary, 30%) 1rem,
+                                            lighten($color--secondary, 30%) 2rem);
+    }
+  }
+
+
+
+
+/**
+ * Styles the main content area
+ *
+ * 1. Limit the width to get a reasonable length for
+ *    each line of text.
+ * 2. Center it
+ * 3. Get out from under the giant header
+ * 4. Add space for the footer to overlap
+ */
+.c-content {
+  max-width: 44.5rem; /* [1] */
+  margin: 0 auto; /* [2] */
+
+  padding-top: 19rem; /* [3] */
+  padding-right: 2rem;
+  padding-bottom: 4rem; /* [4] */
+  padding-left: 2rem;
+
+  background: #fdfdfd;
+}
+
+  /**
+   * Larger screens have to give more room for the header
+   */
+  @include mq($from: tablet) {
+    .c-content {
+      padding-top: 26rem;
+    }
+  }

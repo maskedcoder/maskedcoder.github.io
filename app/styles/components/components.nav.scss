@@ -1,0 +1,96 @@
+/*------------------------------------*\
+    #NAV
+\*------------------------------------*/
+
+/**
+ * These are the links in the header
+ */
+
+/**
+ * 1. Set a width so that the links can be in
+ *    two columns (save space).
+ */
+.c-nav {
+  width: 12.5rem; /* [1] */
+  margin: 0 auto;
+
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+  /**
+   * No longer two columns, so remove width.
+   */
+  @include mq($from: phone) {
+    .c-nav {
+      width: auto;
+    }
+  }
+
+  @include mq($from: tablet) {
+    .c-nav {
+      font-size: 2rem;
+    }
+  }
+
+
+
+
+  /**
+   * 1. This puts them in two columns. Since
+   *    everything is text-align: center, they
+   *    are also centered in their columns.
+   * 2. Bring the rows away from each other.
+   */
+  .c-nav__item {
+    margin: 0;
+    width: 48%; /* [1] */
+
+    margin-top: 1rem; /* [2] */
+  }
+
+    /**
+     * Stop being in columns.
+     */
+    @include mq($from: phone) {
+      .c-nav__item {
+        width: auto;
+        margin-top: 0;
+      }
+
+      /**
+       * Add space between them, horizontally now
+       */
+      .c-nav__item + .c-nav__item {
+        margin-left: 1rem;
+      }
+    }
+
+
+
+
+    /**
+     * 1. Replace underline with bottom border
+     */
+    .c-nav__item > a {
+      padding: 0.2rem;
+
+      border-bottom-width: 0.2rem; /* [1] */
+      border-bottom-style: solid; /* [1] */
+      text-decoration: none; /* [1] */
+
+      color: $color--primary;
+      border-color: $color--primary;
+
+      &:hover {
+        color: $color--quaternary;
+        border-color: $color--quaternary;
+      }
+
+    }
+
+
+
+
+
+

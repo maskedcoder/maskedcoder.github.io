@@ -39,6 +39,7 @@
  *                      headings 1 through 6.
  * Images...............Base image styles.
  * Tables...............Simple table styles.
+ * Links................Custom link styling.
  *
  * OBJECTS
  * Wrapper..............Page constraint object.
@@ -54,8 +55,24 @@
  * Crop.................Provide a cropping context for media (images, etc.).
  * Tables...............Classes for manipulating `table`s.
  * Pack.................Pack items into available horizontal space.
+ * Flag-responsive......Responsive flags.
+ *
+ * SCOPES
+ * Post.................Provides styling for bare elements in a post.
  *
  * COMPONENTS
+ * Header...............Fancy header swoosh.
+ * Logo.................Logo and logo hover effect.
+ * Footer...............Footer section.
+ * Nav..................Header navigation links.
+ * Title................Post title and metadata.
+ * Bio.................."About me" at bottom of posts.
+ * Embed-post...........Embedded posts.
+ * Content..............Controls main content area.
+ * Footnote.............Handles footnotes.
+ *
+ * ADDONS
+ * Highlight............Style the classes inserted by my syntax highighter.
  *
  * UTILITIES
  * Clearfix.............Bind our clearfix onto a utility class.
@@ -70,20 +87,8 @@
 
 // SETTINGS
 
-// Hind needs a larger font-size
-$inuit-global-font-size:    20px;
-$inuit-global-line-height:  28px;
-
-// Since the body font is larger, raise the headings
-$inuit-font-size-h1:  46px;
-$inuit-font-size-h2:  38px;
-$inuit-font-size-h3:  30px;
-$inuit-font-size-h4:  26px;
-$inuit-font-size-h5:  22px;
-$inuit-font-size-h6:  20px;
-
-// But source code should not be too large
-$inuit-font-size-code:  16px;
+// Source code should not be too large
+$inuit-font-size-code:  14px;
 
 @import "settings/settings.config";
 @import "../bower/inuitcss/settings/settings.core";
@@ -120,6 +125,7 @@ $inuit-font-size-code:  16px;
 @import "../bower/inuitcss/elements/elements.images";
 @import "../bower/inuitcss/elements/elements.tables";
 @import "elements/elements.fonts";
+@import "elements/elements.links";
 
 
 
@@ -140,15 +146,36 @@ $inuit-font-size-code:  16px;
 @import "../bower/inuitcss/objects/objects.crop";
 @import "../bower/inuitcss/objects/objects.tables";
 @import "../bower/inuitcss/objects/objects.pack";
+@import "objects/objects.flag-responsive";
+
+
+
+
+
+// SCOPES
+@import "scopes/scopes.post";
 
 
 
 
 
 // COMPONENTS
-//
-// Build and include your project’s UI Compoments here.
-//@import "components/example.components.buttons";
+@import "components/components.header";
+@import "components/components.logo";
+@import "components/components.footer";
+@import "components/components.nav";
+@import "components/components.title";
+@import "components/components.bio";
+@import "components/components.embed-post";
+@import "components/components.content";
+@import "components/components.footnote";
+
+
+
+
+
+// ADDONS
+@import "addons/addons.highlight";
 
 
 

@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+
+/**
+ * 1. Don't let descenders overlap underlines
+ */
+a {
+  color: $color--quinary;
+
+  text-decoration-skip: ink; /* [1] */
+
+  &:visited {
+    color: $color--secondary;
+  }
+
+  &:active {
+    color: $color--primary;
+  }
+}

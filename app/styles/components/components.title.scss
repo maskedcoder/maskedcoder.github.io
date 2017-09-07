@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    #TITLE
+\*------------------------------------*/
+
+/**
+ * This is a creates a title with a subhead
+ * right below, and some space afterwards.
+ */
+
+
+
+
+.c-title {
+  margin-bottom: 2rem;
+}
+
+
+
+
+  .c-title__heading {
+    margin-bottom: 0;
+
+    line-height: 1;
+  }
+
+
+
+
+  .c-title__sub {
+    font-size: 0.9rem;
+
+    font-style: italic;
+  }

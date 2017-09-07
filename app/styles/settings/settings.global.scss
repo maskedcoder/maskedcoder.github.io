@@ -7,3 +7,25 @@
 // Standardise some UI treatments.
 $global-radius: 3px !default;
 $global-transition: (1/3) + s !default;
+
+
+
+
+// Colors
+$color--primary: #fe0000;
+$color--secondary: #24bad3;
+$color--tertiary: #abe70c;
+$color--quaternary: #ffce0d;
+$color--quinary: #0d2cff;
+
+
+
+// Breakpoints
+$mq-breakpoints: (
+  phone:  340px,
+  tablet:  540px,
+
+  // This is the approximate width of the main content area
+  // See components.content
+  content-width: 712px
+);

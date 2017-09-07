@@ -1,18 +1,46 @@
 /*------------------------------------*\
-    #PAGE
+    #FONTS
 \*------------------------------------*/
 
-html {
-  font-family: "Hind", sans-serif;
+/**
+ * Mixin for applying the default font somewhere
+ */
+@mixin standard-font {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-h1, h2 {
-  font-family: "Montserrat", sans-serif;
+/**
+ * Mixin for applying the code (monospace) font somewhere
+ */
+@mixin code-font {
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+
+
+
+/**
+ * Give everything the default font
+ */
+html {
+  @include standard-font();
+}
+
+
+
+
+/**
+ * I consider the heading size to be enough pop
+ */
+h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
-pre {
+
+
+
+code, kbd, pre, samp {
   @include inuit-font-size($inuit-font-size-code);
 
-  font-family: "Source Code Pro", monospace;
+  @include code-font();
 }

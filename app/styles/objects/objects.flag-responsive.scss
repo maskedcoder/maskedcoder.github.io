@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    #FLAG-RESPONSIVE
+\*------------------------------------*/
+
+/**
+ * This extends objects.flag (from Inuit) with
+ * a --responsive modifier, so that the flag
+ * can stop being flag when the screen is small
+ */
+
+@include mq($until: tablet) {
+
+  .o-flag--responsive {
+
+    .o-flag__img,
+    .o-flag__body {
+      display: block;
+    }
+
+
+
+
+    .o-flag__img {
+      padding-right: 0;
+      margin-bottom: 2rem;
+
+      width: auto;
+      text-align: center;
+    }
+
+
+
+
+    .o-flag__img > img {
+      max-width: 100%;
+    }
+
+  }
+
+}

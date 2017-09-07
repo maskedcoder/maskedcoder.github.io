@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+
+/**
+ * This giant header requires several other components
+ * to make adjustments due to overlapping.
+ *
+ * To make the nice curves, I'm using two elements to
+ * make two ellipses, but stacked so that it looks like
+ * a single ellipse with a fancy border.
+ */
+
+
+/**
+ * This parent element is actually the background.
+ *
+ * 1. Center it
+ * 2. Move it to the top of the screen
+ * 3. It's the background, as I said. It forms the border.
+ * 4. Make it an ellipse
+ */
+.c-header {
+  position: absolute; /* [1] */
+  left: 50%; /* [1] */
+  transform: translateX(-50%); /* [1] */
+
+  top: -6.5rem; /* [2] */
+  width: 80rem;
+
+  padding-bottom: 2rem;
+  padding-top: 8rem;
+
+  background: $color--tertiary; /* [3] */
+
+  border-radius: 100% 50%; /* [4] */
+
+  text-align: center;
+}
+
+  /**
+   * When content grows, it needs to not overlap the edge.
+   *
+   * See components.nav and components.logo to see the
+   * content grow.
+   */
+  @include mq($from: phone) {
+    .c-header {
+      padding-bottom: 5rem;
+    }
+  }
+
+
+
+
+  /**
+   * This is the white area.
+   *
+   * 1. Start the same size as the parent
+   * 2. Shrink and tip it a little, for stylish effect
+   * 3. Make sure it doesn't cover the header content
+   */
+  .c-header:before {
+    content: "";
+
+    position: absolute;
+    width: 100%; /* [1] */
+    height: 100%; /* [1] */
+    left: 0;
+    top: 0;
+
+    background: #fff;
+    border-radius: 100% 50%;
+
+    transform: scale(0.9) rotateZ(-2deg); /* [2] */
+    z-index: -1; /* [3] */
+  }
