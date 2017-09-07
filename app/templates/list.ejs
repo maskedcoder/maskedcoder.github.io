@@ -1,0 +1,53 @@
+<%- include('head') -%>
+    <%- include('header') -%>
+    <main class="c-content">
+      <div class="s-post">
+        <header class="c-title">
+         <h1 class="c-title__heading"><%= title %></h1>
+        </header>
+
+        <%- contents -%>
+
+        <ul class="o-list-bare">
+        <%
+          var posts = files[folder].posts;
+
+          // Sort posts by date or by priority
+          if (posts[0].data.date) {
+            posts.sort(function (a, b) {
+              return Number(new Date(b.data.date)) - Number(new Date(a.data.date));
+            });
+          } else {
+            posts.sort(function (a, b) {
+              return Number(a.data.priority) - Number(b.data.priority);
+            });
+          }
+
+          posts.forEach(function (page) {
+        %>
+            <li class="c-embed-post"><article>
+              <header class="c-title">
+                <%
+                if (page.data.date) {
+                  var d = new Date(page.data.date);
+                %>
+                  <small class="c-title__sub">
+                    <time datetime="<%= d.toISOString().split('T')[0] %>"><%= moment(d).format('  MMMM Do, YYYY') %></time>
+                  </small>
+                <% } %>
+                <h2 class="c-title__heading">
+                  <a href="<%- page.name %>"><%- page.data.title %></a>
+                </h2>
+              </header>
+
+              <% if (page.data.excerpt) { %>
+                <%- marked(page.data.excerpt) %>
+                <p><a href="<%- page.name %>">Read more&hellip;</a></p>
+              <% } %>
+
+            </article></li>
+        <% }); %>
+        </ul>
+      </div>
+    </main>
+<%- include('footer') -%>

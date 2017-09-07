@@ -2,6 +2,8 @@
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "browser-sync": "^2.16.0",
+    "codemirror-highlight": "^1.1.1",
+    "ejs": "^2.5.7",
     "eslint-config-airbnb-es5": "^1.0.9",
     "eslint-plugin-react": "^6.3.0",
     "gulp": "^3.9.1",
@@ -11,8 +13,9 @@
     "gulp-layout": "0.0.4",
     "gulp-markdown": "^1.2.0",
     "gulp-sass": "^2.3.2",
-    "mustache": "^2.2.1",
-    "pygmentize-bundled": "^2.3.0"
+    "gulp-tap": "^1.0.1",
+    "marked": "^0.3.2",
+    "moment": "^2.18.1"
   },
   "scripts": {
     "start": "gulp"
@@ -20,5 +23,6 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "private": true
+  "private": true,
+  "dependencies": {}
 }

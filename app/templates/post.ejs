@@ -1,0 +1,21 @@
+<%- include('head') -%>
+    <%- include('header') -%>
+    <main class="c-content">
+      <div class="s-post">
+        <header class="c-title">
+         <h1 class="c-title__heading"><%= title %></h1>
+          <%
+          if (locals.date) {
+            var d = new Date(date);
+          %>
+            <small class="c-title__sub">
+              Posted <time datetime="<%= d.toISOString().split('T')[0] %>"><%= moment(d).format('dddd, MMMM Do, YYYY') %></time>
+            </small>
+          <% } %>
+        </header>
+
+        <%- contents -%>
+        <%- include('signature') -%>
+      </div>
+    </main>
+<%- include('footer') -%>
