@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #SUB-NAV
+\*------------------------------------*/
+
+/**
+ * These are the footer navigation links.
+ */
+
+
+
+
+/**
+ * Start out hidden because there's not
+ * much space.
+ */
+.c-sub-nav {
+  display: none;
+}
+
+  /**
+   * When there's room, show it, and space
+   * them apart.
+   */
+  @include mq($from: small) {
+    .c-sub-nav {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+
+
+
+    .c-sub-nav__item > a {
+      color: #fff;
+
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }

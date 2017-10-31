@@ -27,6 +27,16 @@ var partsFromPath = function partsFromPath(path) {
   return '';
 };
 
+var getURL = function getURL(file) {
+  var path = file.split('content')[1];
+
+  path = path.replace(/\.md$/, '.html');
+  path = path.replace(/index\.html$/, '');
+  path = path.replace(/\\/g, '/');
+
+  return path;
+};
+
 marked.setOptions({
   smartypants: true
 });
@@ -56,15 +66,22 @@ gulp.task('styles', function styles() {
 gulp.task('html', function html() {
   var files = {};
 
+  gulp.src('content/**/*.html')
+    .pipe(gulp.dest('dist'));
+
   return gulp.src('content/**/*.md')
     .pipe(frontMatter({ remove: true }))
     .pipe(tap(function summarize(file) {
       var parts = partsFromPath(file.path);
 
+      file.frontMatter.url = getURL(file.path);
+
       if (!parts) {
         return;
       } else if (parts.length === 1) {
         files[parts[0]] = file.frontMatter;
+
+        file.frontMatter.category = file.frontMatter.category || parts[0];
       } else {
         if (!files[parts[0]].posts) {
           files[parts[0]].posts = [];
@@ -74,6 +91,8 @@ gulp.task('html', function html() {
           name: parts[1],
           data: file.frontMatter
         });
+
+        file.frontMatter.category = file.frontMatter.category || parts[0];
       }
     }))
     .pipe(markdown({
@@ -99,6 +118,7 @@ gulp.task('html', function html() {
       data.marked = marked;
       data.moment = moment;
       data.files = files;
+      data.sitename = 'https://maskedcoder.github.io';
 
       return data;
     }))
@@ -120,6 +140,17 @@ gulp.task('copy', function copy() {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('images', function images() {
+  return gulp.src(['content/images/**/*', '!Thumbs.db'])
+    .pipe(gulp.dest('dist/images'));
+});
+
+// For reloading BrowserSync after image updates
+gulp.task('images-watch', ['images'], function images(done) {
+  browserSync.reload();
+  done();
+});
+
 // For reloading BrowserSync after HTML updates
 gulp.task('html-watch', ['html'], function html(done) {
   browserSync.reload();
@@ -138,7 +169,9 @@ gulp.task('serve', ['default'], function serve() {
   gulp.watch('app/scripts/*.js', ['scripts']);
   gulp.watch('app/templates/**/*', ['html-watch']);
   gulp.watch('content/**/*.md', ['html-watch']);
+  gulp.watch('content/**/*.html', ['html-watch']);
+  gulp.watch('content/images/**/*', ['images-watch']);
 });
 
 // By default, just build site
-gulp.task('default', ['styles', 'html', 'scripts', 'copy']);
+gulp.task('default', ['styles', 'images', 'html', 'scripts', 'copy']);

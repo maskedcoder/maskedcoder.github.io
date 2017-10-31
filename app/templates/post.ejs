@@ -1,21 +1,29 @@
 <%- include('head') -%>
-    <%- include('header') -%>
-    <main class="c-content">
-      <div class="s-post">
-        <header class="c-title">
+  <%- include('header') -%>
+  <main>
+    <header class="c-title-block">
+      <div class="c-title-block__content">
+        <div class="c-title">
          <h1 class="c-title__heading"><%= title %></h1>
           <%
           if (locals.date) {
             var d = new Date(date);
           %>
             <small class="c-title__sub">
-              Posted <time datetime="<%= d.toISOString().split('T')[0] %>"><%= moment(d).format('dddd, MMMM Do, YYYY') %></time>
+              Posted on <time datetime="<%= d.toISOString().split('T')[0] %>"><%= moment(d).format('dddd, MMMM Do, YYYY') %></time>
             </small>
           <% } %>
-        </header>
+        </div>
+      </div>
+    </header>
+    <div class="c-content">
+      <div class="s-post">
 
         <%- contents -%>
-        <%- include('signature') -%>
+
+        <hr>
+        <p>Share this on: <a href="http://www.twitter.com/share?url=<%- sitename + url %>&text=<%- title %>">Twitter</a> | <a href="https://plus.google.com/share?url=<%- sitename + url %>">Google+</a></p>
       </div>
-    </main>
+    </div>
+  </main>
 <%- include('footer') -%>

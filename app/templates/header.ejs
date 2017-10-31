@@ -1,18 +1,18 @@
 <header class="c-header">
-  <div class="c-logo-wrap">
+  <div class="c-header__content">
     <a class="c-logo" href="/" title="Home">
-      <img class="c-logo__img" src="/images/logo.png" alt="Masked Coder Home">
+      <picture>
+        <source srcset="/images/logo-main.svg" type="image/svg+xml">
+        <img class="c-logo__img" src="/images/logo-main.png" alt="Masked Coder Home">
+      </picture>
     </a>
-    <div class="c-logo-wrap__decor">
-      <div class="c-logo-wrap__extra"></div>
-    </div>
+    <nav class="c-nav">
+      <ul class="o-list-inline u-margin-bottom-none">
+        <li class="o-list-inline__item  c-nav__item <%= (category === 'made') ? 'c-nav__item--active' : '' %>"><a href="/made/">Projects</a></li>
+        <li class="o-list-inline__item  c-nav__item <%= (category === 'wrote') ? 'c-nav__item--active' : '' %>"><a href="/wrote/">Writings</a></li>
+        <li class="o-list-inline__item  c-nav__item <%= (category === 'thoughts') ? 'c-nav__item--active' : '' %>"><a href="/thoughts/">Blog</a></li>
+        <li class="o-list-inline__item  c-nav__item <%= (category === 'is') ? 'c-nav__item--active' : '' %>"><a href="/is/">About</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav class="c-nav">
-    <ul class="o-list-inline">
-      <li class="o-list-inline__item  c-nav__item"><a href="/made/">Projects</a></li>
-      <li class="o-list-inline__item  c-nav__item"><a href="/wrote/">Writings</a></li>
-      <li class="o-list-inline__item  c-nav__item"><a href="/thoughts/">Blog</a></li>
-      <li class="o-list-inline__item  c-nav__item"><a href="/is/">About</a></li>
-    </ul>
-  </nav>
 </header>

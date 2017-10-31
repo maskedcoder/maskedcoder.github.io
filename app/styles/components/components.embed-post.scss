@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    #BLOCK
+    #EMBED-POST
 \*------------------------------------*/
 
 .c-embed-post {
@@ -19,7 +19,21 @@
 
     border: 0;
 
-    background: $color--quaternary;
+    @include theme(yellow) {
+      background: $color--quaternary;
+    }
+
+    @include theme(green) {
+      background: $color--tertiary;
+    }
+
+    @include theme(red) {
+      background: $color--primary;
+    }
+
+    @include theme(blue) {
+      background: $color--secondary;
+    }
 
   }
 

@@ -8,14 +8,14 @@
 
 /**
  * 1. Set a width so that the links can be in
- *    two columns (save space).
+ *    two columns (to save space).
  */
 .c-nav {
   width: 12.5rem; /* [1] */
   margin: 0 auto;
 
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
   /**
@@ -29,7 +29,8 @@
 
   @include mq($from: tablet) {
     .c-nav {
-      font-size: 2rem;
+      font-size: 1rem;
+      margin: 0;
     }
   }
 
@@ -69,28 +70,37 @@
 
 
 
-    /**
-     * 1. Replace underline with bottom border
-     */
     .c-nav__item > a {
       padding: 0.2rem;
 
-      border-bottom-width: 0.2rem; /* [1] */
-      border-bottom-style: solid; /* [1] */
-      text-decoration: none; /* [1] */
+      text-decoration: none;
+      text-transform: uppercase;
 
-      color: $color--primary;
-      border-color: $color--primary;
-
-      &:hover {
-        color: $color--quaternary;
-        border-color: $color--quaternary;
-      }
-
+      color: #333;
     }
 
+      /**
+       * Underline whichever section is current.
+       *
+       * The color of the underline changes based on the theme.
+       */
+      .c-nav__item--active > a {
+        border-bottom: 0.1rem solid;
 
+        @include theme(red) {
+          border-color: $color--primary;
+        }
 
+        @include theme(yellow) {
+          border-color: $color--quaternary;
+        }
 
+        @include theme(blue) {
+          border-color: $color--secondary;
+        }
 
+        @include theme(green) {
+          border-color: $color--tertiary;
+        }
 
+      }

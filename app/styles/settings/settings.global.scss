@@ -20,12 +20,29 @@ $color--quinary: #0d2cff;
 
 
 
+
+
+// Themes
+// These add subtle differences to different parts of the site
+$themes: (
+  red: ".t-is",
+  blue: ".t-thoughts",
+  green: ".t-made",
+  yellow: ".t-wrote"
+);
+
+
+
+
 // Breakpoints
 $mq-breakpoints: (
-  phone:  340px,
+  phone:  346px,
+  small: 536px,
   tablet:  540px,
 
   // This is the approximate width of the main content area
   // See components.content
-  content-width: 712px
+  content-width: 712px,
+  decent: 734px,
+  mid: 944px
 );

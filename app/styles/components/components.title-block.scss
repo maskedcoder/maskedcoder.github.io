@@ -1,0 +1,88 @@
+/*------------------------------------*\
+    #TITLE-BLOCK
+\*------------------------------------*/
+
+/**
+ * This is the header area where the page title appears.
+ */
+
+
+
+
+/**
+ * 1. Theme colors are borrowed from the footer
+ */
+.c-title-block {
+  padding: 1rem;
+
+  color: #fff;
+
+  @include theme(red) {
+    background-color: #292020; /* [1] */
+  }
+
+  @include theme(blue) {
+    background-color: #202029; /* [1] */
+  }
+
+  @include theme(green) {
+    background-color: #202922; /* [1] */
+  }
+
+  @include theme(yellow) {
+    background-color: #292820; /* [1] */
+  }
+}
+
+@include mq($from: decent) {
+  .c-title-block {
+    padding: 3rem;
+    min-height: 15rem;
+  }
+}
+
+  /**
+   * This variant makes the block larger and adds an
+   * image in the bottom center.
+   */
+  @include mq($from: decent) {
+    .c-title-block--large {
+      min-height: 22rem;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+      @include theme(red) {
+        background-color: #222;
+        background-image: url(/images/about.svg);
+      }
+
+      @include theme(yellow) {
+        background-color: #222;
+        background-image: url(/images/library.svg);
+      }
+
+      @include theme(green) {
+        background-color: #222;
+        background-image: url(/images/lab.svg);
+      }
+
+      @include theme(blue) {
+        background-color: #222;
+        background-image: url(/images/blog.svg);
+      }
+
+    }
+  }
+
+
+
+
+
+  /**
+   * Wrapper element keeps things aligned
+   * with the content.
+   */
+  .c-title-block__content {
+    max-width: 40.5rem;
+    margin: 0 auto;
+  }

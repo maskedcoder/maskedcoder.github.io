@@ -23,6 +23,7 @@
  * Clearfix.............Micro clearfix mixin.
  * Hidden...............Mixin for hiding elements.
  * Sass MQ..............inuitcss’ default media query manager.
+ * Theme................Generates declarations for theme classes.
  *
  * GENERIC
  * Box-sizing...........Better default `box-sizing`.
@@ -61,12 +62,13 @@
  * Post.................Provides styling for bare elements in a post.
  *
  * COMPONENTS
- * Header...............Fancy header swoosh.
- * Logo.................Logo and logo hover effect.
+ * Header...............Top bar
+ * Logo.................Header logo.
  * Footer...............Footer section.
  * Nav..................Header navigation links.
+ * Sub-Nav..............Footer navigation links.
+ * Title-Block..........Header section for posts.
  * Title................Post title and metadata.
- * Bio.................."About me" at bottom of posts.
  * Embed-post...........Embedded posts.
  * Content..............Controls main content area.
  * Footnote.............Handles footnotes.
@@ -104,6 +106,7 @@ $inuit-font-size-code:  14px;
 @import "../bower/inuitcss/tools/tools.clearfix";
 @import "../bower/inuitcss/tools/tools.hidden";
 @import "../bower/sass-mq/mq";
+@import "tools/tools.theme";
 
 
 
@@ -148,6 +151,13 @@ $inuit-font-size-code:  14px;
 @import "../bower/inuitcss/objects/objects.pack";
 @import "objects/objects.flag-responsive";
 
+@include mq($until: small) {
+  .o-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 
 
 
@@ -164,8 +174,9 @@ $inuit-font-size-code:  14px;
 @import "components/components.logo";
 @import "components/components.footer";
 @import "components/components.nav";
+@import "components/components.sub-nav";
+@import "components/components.title-block";
 @import "components/components.title";
-@import "components/components.bio";
 @import "components/components.embed-post";
 @import "components/components.content";
 @import "components/components.footnote";

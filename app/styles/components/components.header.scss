@@ -3,75 +3,96 @@
 \*------------------------------------*/
 
 /**
- * This giant header requires several other components
- * to make adjustments due to overlapping.
+ * The header is bar of content at the very top.
  *
- * To make the nice curves, I'm using two elements to
- * make two ellipses, but stacked so that it looks like
- * a single ellipse with a fancy border.
+ * Components that live in the header include:
+ *   - LOGO
+ *   - NAV
  */
 
 
 /**
- * This parent element is actually the background.
+ * This parent element gives a background. The content
+ * is managed in a wrapper.
  *
- * 1. Center it
- * 2. Move it to the top of the screen
- * 3. It's the background, as I said. It forms the border.
- * 4. Make it an ellipse
+ * Note that the colors here change for different themes.
  */
 .c-header {
-  position: absolute; /* [1] */
-  left: 50%; /* [1] */
-  transform: translateX(-50%); /* [1] */
+  border-top: 0.5rem solid;
+  padding: 1rem;
 
-  top: -6.5rem; /* [2] */
-  width: 80rem;
-
-  padding-bottom: 2rem;
-  padding-top: 8rem;
-
-  background: $color--tertiary; /* [3] */
-
-  border-radius: 100% 50%; /* [4] */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='12'><path fill='rgba(0,0,0,0.03)' d='M0,10 L12,0 24,10 24,12 12,2 0,12z'></path></svg>"),
+    linear-gradient(to top, rgba(0,0,0,0.05) 0%, transparent 10%);
 
   text-align: center;
+
+  @include theme(red) {
+    background-color: #fff2f2;
+    border-color: $color--primary;
+  }
+
+  @include theme(green) {
+    background-color: #f2fff3;
+    border-color: $color--tertiary;
+  }
+
+  @include theme(blue) {
+    background-color: #f2f2ff;
+    border-color: $color--secondary;
+  }
+
+  @include theme(yellow) {
+    background-color: #fdfff2;
+    border-color: $color--quaternary;
+  }
+
 }
 
+
+
+
   /**
-   * When content grows, it needs to not overlap the edge.
+   * An extra little stripe at the top.
    *
-   * See components.nav and components.logo to see the
-   * content grow.
+   * 1. The stripe is done with a border
+   *    so that I can just inherit the
+   *    parent's (changing) border color.
    */
-  @include mq($from: phone) {
-    .c-header {
-      padding-bottom: 5rem;
-    }
+  .c-header:before {
+    content: '';
+
+    position: absolute;
+    top: 0.625em;
+    left: 0;
+    right: 0;
+
+    border-top: 0.125rem solid; /* [1] */
+    border-color: inherit; /* [1] */
   }
 
 
 
 
-  /**
-   * This is the white area.
-   *
-   * 1. Start the same size as the parent
-   * 2. Shrink and tip it a little, for stylish effect
-   * 3. Make sure it doesn't cover the header content
-   */
-  .c-header:before {
-    content: "";
+/**
+ * This is a wrapper for the content within
+ * the header. It keeps things generally
+ * toward the center of the screen, but
+ * spaced apart.
+ *
+ * 1. Size and center it.
+ * 2. Put some space at the edges.
+ * 3. Keep the logo and nav links apart.
+ */
+  @include mq($from: decent) {
+    .c-header__content {
+      max-width: 1600px; /* [1] */
+      margin: 0 auto; /* [1] */
 
-    position: absolute;
-    width: 100%; /* [1] */
-    height: 100%; /* [1] */
-    left: 0;
-    top: 0;
+      padding-left: 4rem; /* [2] */
+      padding-right: 4rem; /* [2] */
 
-    background: #fff;
-    border-radius: 100% 50%;
-
-    transform: scale(0.9) rotateZ(-2deg); /* [2] */
-    z-index: -1; /* [3] */
+      display: flex; /* [3] */
+      align-items: center; /* [3] */
+      justify-content: space-between; /* [3] */
+    }
   }

@@ -3,33 +3,32 @@
 \*------------------------------------*/
 
 /**
- * This is responsible for the logo and its
- * Amazing Hover Effect.
+ * This is responsible for the logo.
  */
 
 /**
  * 1. Allow the logo to be centered.
- * 2. Keep it small
+ * 2. Keep it small.
+ * 3. Add some space between this and the
+ *    nav links below.
  */
 .c-logo {
   display: inline-block; /* [1] */
-  width: 6rem; /* [2] */
+  width: 12rem; /* [2] */
 
-  border: 0.2rem solid #000;
-  border-radius: 100%;
-
-  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
   /**
-   * 1. Make the logo bigger
-   * 2. Since the logo is bigger, make the border thicker
+   * 1. Make the logo slightly bigger.
+   * 2. Remove the bottom margin since the nav links
+   *    are no longer underneath.
    */
-  @include mq($from: tablet) {
+  @include mq($from: decent) {
     .c-logo {
-      width: 12rem;
+      width: 13.56rem; /* [1] */
 
-      border-width: 0.3rem;
+      margin-bottom: 0; /* [2] */
     }
   }
 
@@ -40,145 +39,3 @@
     width: 100%;
     height: 100%;
   }
-
-
-
-
-/**
- * The hover effect is a rotating starburst coming out
- * from under the logo.
- *
- * The starburst is formed from 4 squares. I do this
- * with the ::before and ::after of .c-logo-wrap__decor
- * and .c-logo-wrap__extra
- */
-
-/**
- * This is where the hover effect starts.
- *
- * 1. Keep things the size of the image
- * 2. Allow for absolute positioned children
- */
-.c-logo-wrap {
-  display: inline-block; /* [1] */
-  position: relative; /* [2] */
-
-  margin-bottom: 1rem;
-}
-
-
-
-
-  /**
-   * Note that this element is not itself one
-   * of the squares. The squares are the
-   * psuedo-elements.
-   *
-   * However, this element is useful to
-   * position and rotate everything.
-   *
-   * 1. If I did 1rem all around, it would look
-   *    like the element was a few pixels higher
-   *    than the logo. I suspect this is due to
-   *    inline-block stuff. Anyway, I deal with
-   *    it by moving it slightly down.
-   */
-  .c-logo-wrap__decor {
-    display: inline-block;
-    position: absolute;
-
-    left: 1rem;
-    top: 0.85rem; /* [1] */
-    right: 1rem;
-    bottom: 1.15rem; /* [1] */
-
-    z-index: -1;
-
-    animation: spin 10s linear infinite;
-  }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    /**
-     * Smaller screens do not need this hover effect
-     */
-    @include mq($until: tablet) {
-      .c-logo-wrap__decor {
-        display: none;
-      }
-    }
-
-
-
-
-    /**
-     * These are the squares.
-     *
-     * 1. Hovering will scale them into visibility
-     */
-    .c-logo-wrap__decor:after,
-    .c-logo-wrap__decor:before,
-    .c-logo-wrap__extra:after,
-    .c-logo-wrap__extra:before {
-      content: '';
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-
-      background: $color--primary;
-
-      z-index: -1;
-
-      transition: transform 0.25s ease-in-out;
-    }
-
-    /**
-     * Since scale and rotate are both transforms, I have
-     * to do each element's transforms twice.
-     *
-     * Everything goes from 0.5 to 1, so that there won't
-     * be a large lag between the hover and them appearing.
-     */
-
-    .c-logo-wrap__decor:after {
-      transform: scale(0.5);
-    }
-      .c-logo-wrap:hover .c-logo-wrap__decor:after {
-        transform: scale(1);
-      }
-
-    .c-logo-wrap__decor:before {
-      transform: scale(0.5)rotate(22.5deg);
-    }
-      .c-logo-wrap:hover .c-logo-wrap__decor:before {
-        transform: scale(1)rotate(22.5deg);
-      }
-
-    .c-logo-wrap__extra:after {
-      transform: scale(0.5)rotate(45deg);
-    }
-      .c-logo-wrap:hover .c-logo-wrap__extra:after {
-        transform: scale(1)rotate(45deg);
-      }
-
-    .c-logo-wrap__extra:before {
-      transform: scale(0.5)rotate(67.5deg);
-    }
-      .c-logo-wrap:hover .c-logo-wrap__extra:before {
-        transform: scale(1)rotate(67.5deg);
-      }
-
-
-
-

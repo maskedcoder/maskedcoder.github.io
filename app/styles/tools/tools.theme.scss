@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    #THEME
+\*------------------------------------*/
+
+/**
+ * Helper for adding theme classes to components.
+ *
+ * For example, different sections of a website
+ * may be themed like this:
+ *
+ *     <html class="t-wiki">
+ *       ...
+ *       <h1 class="c-heading">Page name</h1>
+ *
+ * Here, the `.t-wiki` class is applying unique
+ * styling for the elements in the page. The CSS
+ * might look like this:
+ *
+ *     .c-heading {...}
+ *
+ *     .t-wiki .c-heading {...}
+ *
+ * The theme() generates the selector for you.
+ * It can be used like this:
+ *
+ *     .c-heading {
+ *       ...
+ *       @include theme(wiki) {
+ *         ...
+ *       }
+ *     }
+ *
+ * This abstraction allows the name of the theme to
+ * be different from the actual class name, so you
+ * could have do `theme(blue)` in your CSS and then
+ * make `blue` turn into `.t-forum`, thus allowing
+ * the final theme names to be related to the content.
+ */
+
+
+
+
+// Themes should be defined as name => string pairs,
+// where the string is the class name that will be
+// applied to a wrapper to trigger the theme.
+
+$themes: () !default;
+
+
+
+// This generates the theme class selectors.
+// Use it like this:
+//
+//     @include theme(name) { [CSS declarations] }
+//
+// The parameter `name` must be one of the
+// names defined in `$themes`.
+
+@mixin theme($name) {
+
+  @at-root #{map-get($themes, $name)} & {
+    @content;
+  }
+
+}

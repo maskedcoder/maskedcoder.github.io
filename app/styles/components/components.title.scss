@@ -3,8 +3,7 @@
 \*------------------------------------*/
 
 /**
- * This is a creates a title with a subhead
- * right below, and some space afterwards.
+ * This is a creates a title with a subhead.
  */
 
 
@@ -18,10 +17,18 @@
 
 
   .c-title__heading {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 
     line-height: 1;
+
+    font-size: 2.5rem;
   }
+
+    @include mq($from: decent) {
+      .c-title__heading--large {
+        font-size: 4rem;
+      }
+    }
 
 
 
