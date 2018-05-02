@@ -1,0 +1,35 @@
+.c-feature-box {
+  background: #282828;
+  color: #fff;
+  text-decoration: none;
+  padding: 3rem;
+  text-align: center;
+
+  &:link,
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover .c-feature-box__content {
+    transform: scale(1.2);
+  }
+}
+
+.c-feature-box__content {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1);
+}
+
+  .c-feature-box__item {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+    @include mq($from: mid) {
+      .c-feature-box__item {
+        font-size: 4rem;
+      }
+    }
+
+

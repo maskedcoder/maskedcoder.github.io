@@ -2,6 +2,17 @@
     #FONTS
 \*------------------------------------*/
 
+@font-face {
+  font-family: 'Bebas';
+  src: url('/fonts/BEBAS___-webfont.eot');
+  src: url('/fonts/BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/BEBAS___-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  unicode-range: U+0000-001F, U+0021-007F;
+}
+
+
 /**
  * Mixin for applying the default font somewhere
  */
@@ -14,6 +25,16 @@
  */
 @mixin code-font {
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+/**
+ * Mixin for applying the default font somewhere
+ */
+@mixin title-font {
+  font-family: Bebas, sans-serif-condensed, "Helvetica Neue Condensed Bold", "Ubuntu Condensed", "Roboto Condensed", "Gill Sans MT Condensed", Impact, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  word-spacing: 0.1em;
 }
 
 

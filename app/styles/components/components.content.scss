@@ -24,17 +24,15 @@
  * 1. Limit the width to get a reasonable length for
  *    each line of text.
  * 2. Center it
- * 3. Get out from under the giant header
- * 4. Add space for the footer to overlap
+ * 3. Add white in case there's a background image
  */
 .c-content {
-  max-width: 44.5rem; /* [1] */
+  max-width: 48.5rem; /* [1] */
   margin: 0 auto; /* [2] */
 
-  padding-top: 2rem; /* [3] */
-  padding-right: 1rem;
-  padding-bottom: 4rem; /* [4] */
-  padding-left: 1rem;
+  padding: 2rem;
+
+  background: #fff; /* [3] */
 }
 
   /**
@@ -42,16 +40,6 @@
    */
   @include mq($from: phone) {
     .c-content {
-      padding-left: 2rem; /* [3] */
-      padding-right: 2rem;
-    }
-  }
-
-  /**
-   * Larger screens have to give more room for the header
-   */
-  @include mq($from: tablet) {
-    .c-content {
-      padding-top: 2rem;
+      padding: 4rem; /* [3] */
     }
   }

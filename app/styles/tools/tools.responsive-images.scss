@@ -1,0 +1,96 @@
+/*------------------------------------*\
+    #RESPONSIVE-IMAGES
+\*------------------------------------*/
+
+/**
+ * Helper for creating responsive image media-queries.
+ * All you do is give it a list of images and their
+ * respective sizes, and it runs on its own.
+ *
+ * The list of images is a map with image urls and
+ * widths in pixels:
+ *
+ *     $images: (
+ *       'image-1.jpg': 100,
+ *       'image-2.jpg': 200,
+ *       'image-3.jpg': 300
+ *     );
+ *
+ * Next, @include the mixin:
+ *
+ *     .bg {
+ *       @include responsive-images($images);
+ *     }
+ *
+ * This will generate the following:
+ *
+ *     .bg {
+ *       background-image: url(image-1.jpg);
+ *     }
+ *
+ *     @media (min-width: 151px) and (max-width: 250px) {
+ *       .bg {
+ *         background-image: url(image-2.jpg);
+ *       }
+ *     }
+ *
+ *     @media (min-width: 251px) {
+ *       .bg {
+ *         background-image: url(image-2.jpg);
+ *       }
+ *     }
+ *
+ * The cutoffs are automatically calculated to be
+ * the midpoint between each two image sizes.
+ *
+ * Note that this assumes that the images are 100vw.
+ * For breakpoints, you're still on your own.
+ */
+
+@mixin responsive-images($sizes) {
+
+  $len: length($sizes);
+
+  @for $i from 1 through $len {
+
+    $val: nth($sizes, $i);
+    $img: nth($val, 1);
+    $size: nth($val, 2);
+
+    @if $i == 1 {
+
+      background-image: url($img);
+
+    } @else {
+
+      $prev-val: nth($sizes, $i - 1);
+      $prev-img: nth($prev-val, 1);
+      $prev-size: nth($prev-val, 2);
+
+      $middle: (($size - $prev-size) / 2) + $prev-size;
+
+      @if $i == $len {
+
+        @media (min-width: '#{$middle}px') {
+          background-image: url($img);
+        }
+
+      } @else {
+
+        $next-val: nth($sizes, $i + 1);
+        $next-img: nth($next-val, 1);
+        $next-size: nth($next-val, 2);
+
+        $next-middle: (($next-size - $size) / 2) + $size + 1;
+
+        @media (min-width: '#{$middle}px') and (max-width: '#{$next-middle}px') {
+          background-image: url($img);
+        }
+
+      }
+
+    }
+
+  }
+
+}

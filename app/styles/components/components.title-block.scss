@@ -86,3 +86,18 @@
     max-width: 40.5rem;
     margin: 0 auto;
   }
+
+
+
+.c-title-block__heading {
+  @include title-font();
+
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+@include mq($from: 600px) {
+  .c-title-block__heading {
+    font-size: 5rem;
+  }
+}

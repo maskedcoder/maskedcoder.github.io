@@ -1,0 +1,24 @@
+.c-icon {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.c-icon__writings {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M6 14 C14 14 28 8 32 16 C36 6 42 14 58 14 L58 36 C46 32 40 28 32 36 C30 28 12 34 6 36 M2 16 L2 40 L28 38 L28 40 L36 40 L36 38 L62 40 L62 16 M4 15 L4 38 L32 36 L60 38 L60 15 M32 16 L32 36 M6 14 L6 36" fill="none" stroke="#fff"></path></svg>');
+}
+
+.c-icon__about {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M9.5 14.5 L9.5 21.5 M44.5 13 L44.5 21.5 M9.5 21 l35.5 -0.5 c0 0 2.5 10 -3 12 s-9.5 -1.5 -13.5 -1.5 c-4 0 -9 3.5 -15 2 C7 31 9.5 21 9.5 21z M9.5 17 c0 0 -4 -3 -2.5 -6 S20 -1 31 0.5 s9 7.5 7 9.5 c-3.5 3 -10 0 -14.5 0 c-11 0 -14.5 4.5 -14.5 4.5 M44.5 17 c0 0 3 -1 3.5 -3.5 s-0.5 -5.5 -3.5 -7 c-2.5 -1.5 -4.5 -1 -4.5 1 c0 4.5 5 4 5 6 M32 27 c0 0 7 -1.5 7.5 0 s-1 3 -4 3 S32 27 32 27z M23.5 27 c0 0 -6 -1.5 -6.5 0 s0 2.5 2 2.5 C22 30 23.5 27 24 27z M25 37.5 c0 0 1.5 2.5 4 2.5 s4 -2.5 4 -2.5 M21.5 43.5 l12 -.5 c0 0 0 4.5 -5 5 S21.5 43.5 21.5 43.5z M10 30 c0 0 2.5 12.5 4.5 15.5 c2 3.5 6 7.5 7 8.5 c2 2 9 3.5 12.5 0.5 c4.5 -4 5.5 -9 7.5 -12.5 s3.5 -8.5 3.5 -11.5 M9.5 29.5 c0 0 -2 6.5 -3.5 10 c-3 6 -5 9 -5 9 l5.5 2.5 c0 0 5.5 -10.5 5.5 -13 M5.5 50.5 L5.5 56.5 L13.5 56.5 L13 42" fill="none" stroke="#fff"></path></svg>');
+}
+
+.c-icon__blog {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M4 4 L30 4 L30 20 L4 20 Z M4 38 L30 38 L30 54 L4 54 Z M36 6 L60 6 M36 10 L60 10 M36 14 L60 14 M36 18 L60 18 M36 22 L60 22 M6 26 L60 26 M6 30 L60 30 M36 40 L60 40 M36 44 L60 44 M36 48 L60 48 M36 52 L60 52" fill="none" stroke="#fff"></path></svg>');
+}
+
+.c-icon__projects {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M12 54 L42 54 C46 54 46 51 44 48 L30 28 L30 12 L32 12 L32 10 L22 10 L22 12 L24 12 L24 28 L10 48 C8 51 8 54 12 54 Z M40 42 L48 30 C42 26 50 20 56 18 L51 26 L57 30 L62 22 C64 27 60 38 54 34 L44 48 M40 54 C34 62 30 56 32 54 M16 42 C18 40 24 40 27 42 S36 44 38 42 M24 32 A1 1 0 1 0 26 32 A1 1 0 1 0 24 32 M30 2 A1 1 0 1 0 32 2 A1 1 0 1 0 30 2 M24 6 A2 2 0 1 0 28 6 A2 2 0 1 0 24 6 M49.5 34 L44 42" fill="none" stroke="#fff"></path></svg>');
+}

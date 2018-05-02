@@ -21,13 +21,12 @@
   border-top: 0.5rem solid;
   padding: 1rem;
 
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='12'><path fill='rgba(0,0,0,0.03)' d='M0,10 L12,0 24,10 24,12 12,2 0,12z'></path></svg>"),
-    linear-gradient(to top, rgba(0,0,0,0.05) 0%, transparent 10%);
+  background-image: linear-gradient(to top, rgba(0,0,0,0.05) 0%, transparent 10%);
 
   text-align: center;
 
   @include theme(red) {
-    background-color: #fff2f2;
+    background-color: hsl(0, 100%, 98%);
     border-color: $color--primary;
   }
 
@@ -47,28 +46,6 @@
   }
 
 }
-
-
-
-
-  /**
-   * An extra little stripe at the top.
-   *
-   * 1. The stripe is done with a border
-   *    so that I can just inherit the
-   *    parent's (changing) border color.
-   */
-  .c-header:before {
-    content: '';
-
-    position: absolute;
-    top: 0.625em;
-    left: 0;
-    right: 0;
-
-    border-top: 0.125rem solid; /* [1] */
-    border-color: inherit; /* [1] */
-  }
 
 
 

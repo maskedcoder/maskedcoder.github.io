@@ -1,10 +1,10 @@
 <%- include('head') -%>
   <%- include('header') -%>
-  <main>
+  <main class="c-backdrop c-backdrop--small">
     <header class="c-title-block">
       <div class="c-title-block__content">
         <div class="c-title">
-         <h1 class="c-title__heading"><%= title %></h1>
+         <h1 class="c-title__heading"><span class="c-title-block__heading"><%= title %></span></h1>
           <%
           if (locals.date) {
             var d = new Date(date);

@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    #BUTTON
+\*------------------------------------*/
+
+
+
+
+
+.c-btn {
+  display: inline-block;
+  background: $color--primary;
+  color: #fff;
+  padding: 0.5rem 3rem;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  border-radius: 0.8rem;
+  line-height: 1;
+  box-shadow: 0 0.3rem 0.4rem rgba(0,0,0,0.4);
+}
+
+  .c-btn:hover {
+    background: lighten($color--primary, 10%);
+  }
+
+  .c-btn:active {
+    color: #fff;
+    background: darken($color--primary, 10%);
+  }
+
+  .c-btn:focus {
+    border: 0.2rem solid $color--secondary;
+    outline: none;
+  }

@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #BACKDROP
+\*------------------------------------*/
+
+
+.c-backdrop {
+  padding-top: 15vh;
+  background: #222;
+}
+
+@include mq($from: 600px) {
+  .c-backdrop {
+    padding-top: 20vh;
+    background-repeat: no-repeat;
+    background-size: 100vw auto;
+    background-position: center top;
+
+    @include theme(red) {
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,1) 90vh),
+                        url(/images/okc.jpg);
+    }
+
+    @include theme(yellow) {
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,1) 90vh),
+                        url(/images/books.jpg);
+    }
+
+    @include theme(blue) {
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,1) 90vh),
+                        url(/images/lane.jpg);
+    }
+
+    @include theme(green) {
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,1) 90vh),
+                        url(/images/lab.jpg);
+    }
+  }
+}
+
+.c-backdrop--small {
+  padding-top: 0;
+}

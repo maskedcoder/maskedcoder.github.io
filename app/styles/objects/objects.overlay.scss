@@ -1,0 +1,169 @@
+/*------------------------------------*\
+    #OVERLAY
+\*------------------------------------*/
+
+.o-overlay {
+  position: relative;
+}
+
+.o-overlay__content {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+
+
+
+  .o-overlay--lighten & {
+    background: linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+  }
+}
+
+
+
+
+
+.o-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@include mq($from: tablet) {
+  .c-section {
+    background: url(/images/city-street.jpg);
+    background-size: cover;
+    background-position: center left;
+  }
+}
+
+.c-section__content {
+  background: #fff;
+
+  padding: 2rem;
+}
+
+.c-section__heading {
+  font-size: 3rem;
+}
+
+.u-half-wrapper {
+  max-width: 600px;
+  margin-right: auto;
+}
+
+
+
+
+.c-article {
+  padding: 1rem;
+  //border-radius: 0.2rem;
+  //box-shadow: 0 0.2rem 0.4rem rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  border-left: 0.2rem solid $color--primary;
+}
+
+.c-article__sub {
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.c-article p:last-child {
+  margin-bottom: 0;
+}
+
+.c-article + .c-article {
+  margin-top: 2rem;
+}
+
+
+.c-article img {
+  display: none;
+}
+
+.c-article__heading {
+  color: #000;
+  font-weight: 500;
+}
+
+.c-article__link {
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
+
+
+
+
+
+.title-block {
+  margin-bottom: 4rem;
+}
+
+.title-block h1 {
+  @include title-font();
+
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+
+  color: #fff;
+
+  @include mq($from: 600px) {
+    color: #000;
+    text-shadow: 0 0 2rem #fff;
+  }
+
+  @include mq($from: content-width) {
+    font-size: 7rem;
+  }
+}
+
+
+.c-image-cred {
+  position: relative;
+}
+
+.c-image-cred__attrib {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: #333;
+}
+
+.c-image-cred__attrib--left {
+  right: auto;
+  left: 0;
+
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+}
+
+.c-image-cred__attrib--bottom {
+  top: auto;
+  bottom: 0;
+}
